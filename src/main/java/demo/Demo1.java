@@ -19,17 +19,25 @@ public class Demo1 {
 		SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(is);
 		SqlSession session = sf.openSession();
 		try{
-			String str = "dao.UserMapper.findById";
-			User user = session.selectOne(str, 1L);
-			System.out.println(user.toString());
+//			String str = "dao.UserMapper.findById";
+//			User user = session.selectOne(str, 1L);
+//			System.out.println(user.toString());
 			
 			String str1 = "dao.UserMapper.findAll";
 			List<User> list = session.selectList(str1);
 			for (User u : list) {
 				System.out.println(u.toString());
 			}
-//			UserMapper mapper = session.getMapper(UserMapper.class);
-//			User user = mapper.findById(1L);
+			
+			String str2 = "dao.UserMapper.insertUser";
+			User i = new User();
+			i.setName("dd");
+			i.setRealName("大大");
+			i.setAge(10L);
+			i.setDes("VC可不好粗预告");
+			int insert = session.insert(str2, i);
+			System.out.println(insert);
+			
 		}finally{
 			session.close();
 		}

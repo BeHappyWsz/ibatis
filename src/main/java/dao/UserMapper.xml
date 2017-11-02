@@ -28,4 +28,11 @@
  	 	from user
  	 </select>
  	 
+ 	 <insert id="insertUser" parameterType="domain.User" useGeneratedKeys="true" keyProperty="id">
+ 	 	insert into user(id,name,real_name,age,des)
+ 	 	values (#{id},#{name},#{realName},#{age},#{des})
+ 	 </insert>
+ 	 
+ 	 
+ 	 
 </mapper>
