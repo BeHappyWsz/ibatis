@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * @Author wsz
  * @Des:
- * @Date: 19:51 2017/10/16
+ * @Date: 19:51 2017/11/2
  */
 public class User implements Serializable{
 
@@ -30,11 +30,9 @@ public class User implements Serializable{
     @Getter
     private Long age;
 
-
     @Setter
     @Getter
     private String des;
-
 
 	@Override
 	public String toString() {

@@ -26,19 +26,19 @@ public class Demo1 {
 //			System.out.println(user.toString());
 			
 			//批量插入
-//			String batchInsert = "dao.UserMapper.batchInsert";
-//			List<User> insertList = new ArrayList<User>();
-//			for(int i = 0; i< 5 ; i++){
-//				User u  = new User();
-//				u.setAge(i*10L);
-//				u.setName(String.valueOf(i*i*i));
-//				u.setRealName(String.valueOf('a'+i));
-//				u.setDes("第几个:"+i);
-//				insertList.add(u);
-//			}
-//			int insert = session.insert(batchInsert, insertList);
-//			System.out.println(insert);
-//			session.commit();
+			String batchInsert = "dao.UserMapper.batchInsert";
+			List<User> insertList = new ArrayList<User>();
+			for(int i = 0; i< 5 ; i++){
+				User u  = new User();
+				u.setAge(i*10L);
+				u.setName(String.valueOf(i*i*i));
+				u.setRealName(String.valueOf('a'+i));
+				u.setDes("第几个:"+i);
+				insertList.add(u);
+			}
+			int insert = session.insert(batchInsert, insertList);
+			System.out.println(insert);
+			session.commit();
 			
 			//查询所有
 			String str1 = "dao.UserMapper.findAll";
@@ -53,7 +53,7 @@ public class Demo1 {
 //			i.setName("dd");
 //			i.setRealName("大大");
 //			i.setAge(10L);
-//			i.setDes("VC可不好粗预告");
+//			i.setDes("VC可");
 //			int insert = session.insert(str2, i);
 //			System.out.println(insert);
 //			session.commit();
