@@ -15,6 +15,9 @@
     </environment>
   </environments>
   <mappers>
+  	<!--  
     <mapper resource="dao/UserMapper.xml"/>
+    -->
+    <package name="dao"/>
   </mappers>
 </configuration>
