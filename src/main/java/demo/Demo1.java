@@ -36,7 +36,11 @@ public class Demo1 {
 			i.setAge(10L);
 			i.setDes("VC可不好粗预告");
 			int insert = session.insert(str2, i);
+			session.commit();
 			System.out.println(insert);
+			String str3 = "dao.UserMapper.findByName";
+			List<User> selectList = session.selectList(str3, "dd");
+			System.out.println(selectList.size());
 			
 		}finally{
 			session.close();

@@ -14,7 +14,7 @@
 	<parameterMap id="User" type="domain.User"/>
 	
 	<sql id="Base_Column">
-		id,name,real_name,age
+		id,name,real_name,age,des
 	</sql>
 	
  	 <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -33,6 +33,10 @@
  	 	values (#{id},#{name},#{realName},#{age},#{des})
  	 </insert>
  	 
- 	 
+ 	 <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+ 	 	select <include refid="Base_Column"></include>
+ 	 	from user
+ 	 	where name =#{name}
+ 	 </select>
  	 
 </mapper>
