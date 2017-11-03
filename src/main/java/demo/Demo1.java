@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import dao.UserMapper;
 import domain.User;
 
 public class Demo1 {
@@ -24,21 +25,24 @@ public class Demo1 {
 //			String str = "dao.UserMapper.findById";
 //			User user = session.selectOne(str, 1L);
 //			System.out.println(user.toString());
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			User findById = mapper.findById(1L);
+			System.out.println(findById);
 			
-			//批量插入
-			String batchInsert = "dao.UserMapper.batchInsert";
-			List<User> insertList = new ArrayList<User>();
-			for(int i = 0; i< 5 ; i++){
-				User u  = new User();
-				u.setAge(i*10L);
-				u.setName(String.valueOf(i*i*i));
-				u.setRealName(String.valueOf('a'+i));
-				u.setDes("第几个:"+i);
-				insertList.add(u);
-			}
-			int insert = session.insert(batchInsert, insertList);
-			System.out.println(insert);
-			session.commit();
+//			//批量插入
+//			String batchInsert = "dao.UserMapper.batchInsert";
+//			List<User> insertList = new ArrayList<User>();
+//			for(int i = 0; i< 5 ; i++){
+//				User u  = new User();
+//				u.setAge(i*10L);
+//				u.setName(String.valueOf(i*i*i));
+//				u.setRealName(String.valueOf('a'+i));
+//				u.setDes("第几个:"+i);
+//				insertList.add(u);
+//			}
+//			int insert = session.insert(batchInsert, insertList);
+//			System.out.println(insert);
+//			session.commit();
 			
 			//查询所有
 			String str1 = "dao.UserMapper.findAll";
