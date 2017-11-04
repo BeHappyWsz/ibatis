@@ -3,6 +3,7 @@ package demo;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -10,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import dao.UserMapper;
 import domain.User;
 
 public class Demo1 {
@@ -24,39 +26,44 @@ public class Demo1 {
 //			String str = "dao.UserMapper.findById";
 //			User user = session.selectOne(str, 1L);
 //			System.out.println(user.toString());
+			UserMapper mapper = session.getMapper(UserMapper.class);
+//			User findById = mapper.findById(1L);
+//			System.out.println(findById);
 			
-			//批量插入
-			String batchInsert = "dao.UserMapper.batchInsert";
-			List<User> insertList = new ArrayList<User>();
-			for(int i = 0; i< 5 ; i++){
-				User u  = new User();
-				u.setAge(i*10L);
-				u.setName(String.valueOf(i*i*i));
-				u.setRealName(String.valueOf('a'+i));
-				u.setDes("第几个:"+i);
-				insertList.add(u);
-			}
-			int insert = session.insert(batchInsert, insertList);
-			System.out.println(insert);
-			session.commit();
-			
-			//查询所有
-			String str1 = "dao.UserMapper.findAll";
-			List<User> list = session.selectList(str1);
-			for (User u : list) {
-				System.out.println(u.toString());
-			}
-			
-			//单一插入
-//			String str2 = "dao.UserMapper.insertUser";
-//			User i = new User();
-//			i.setName("dd");
-//			i.setRealName("大大");
-//			i.setAge(10L);
-//			i.setDes("VC可");
-//			int insert = session.insert(str2, i);
+//			//批量插入
+//			String batchInsert = "dao.UserMapper.batchInsert";
+//			List<User> insertList = new ArrayList<User>();
+//			for(int i = 0; i< 5 ; i++){
+//				User u  = new User();
+//				u.setAge(i*10L);
+//				u.setName(String.valueOf(i*i*i));
+//				u.setRealName(String.valueOf('a'+i));
+//				u.setDes("第几个:"+i);
+//				insertList.add(u);
+//			}
+//			int insert = session.insert(batchInsert, insertList);
 //			System.out.println(insert);
 //			session.commit();
+			
+			//查询所有
+//			String str1 = "dao.UserMapper.findAll";
+//			UserMapper mapper1 = session.getMapper(UserMapper.class);
+//			List<User> list = mapper1.findAll();
+////			List<User> list = session.selectList(str1);
+//			for (User u : list) {
+//				System.out.println(u.toString());
+//			}
+
+			//单一插入
+			User i = new User();
+			i.setName("dd");
+			i.setRealName("大大");
+			i.setAge(10L);
+			i.setDes("VC可");
+//			i.setDate(new Date());
+			int insert = mapper.insertUser(i);
+			System.out.println(insert);
+			session.commit();
 			//equal查询
 //			String str3 = "dao.UserMapper.findByName";
 //			List<User> selectList = session.selectList(str3, "dd");

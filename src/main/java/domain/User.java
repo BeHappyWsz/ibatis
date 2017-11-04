@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @Author wsz
@@ -33,6 +34,10 @@ public class User implements Serializable{
     @Setter
     @Getter
     private String des;
+
+    @Setter
+    @Getter
+    private Date date;
 
 	@Override
 	public String toString() {
