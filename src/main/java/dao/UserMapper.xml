@@ -29,8 +29,8 @@
  	 </select>
  	 
  	 <insert id="insertUser" parameterType="domain.User" useGeneratedKeys="true" keyProperty="id">
- 	 	insert into user(id,name,real_name,age,des,date)
- 	 	values (#{id},#{name},#{realName},#{age},#{des},#{date})
+ 	 	insert into user(id,name,real_name,age,des,date,time)
+ 	 	values (#{id},#{name},#{realName},#{age},#{des},#{date},#{time})
  	 </insert>
  	 
  	 <insert id="batchInsert" >

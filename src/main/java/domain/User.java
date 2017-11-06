@@ -39,9 +39,20 @@ public class User implements Serializable{
     @Getter
     private Date date;
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", realName=" + realName
-				+ ", age=" + age + ", des=" + des + "]";
-	}
+    @Setter
+    @Getter
+    private String time;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", realName='" + realName + '\'' +
+                ", age=" + age +
+                ", des='" + des + '\'' +
+                ", date=" + date +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }
